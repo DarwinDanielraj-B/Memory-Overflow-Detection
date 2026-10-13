@@ -77,3 +77,7 @@ The comparison uses `total_size > MAX_TOTAL_SIZE`, so a total of exactly **512 b
 ## Scope and limitations
 
 This project demonstrates the size validation and UART reporting for Exercise 3. It does **not** yet implement actual EEPROM I2C read/write operations or the complete AUTOSAR NvM/Ea stack. The current `Det_ReportError()` is a demonstration function that sends a message over UART; it is not connected to a production AUTOSAR Development Error Tracer service. The table is compile-time configuration, not a set of values parsed from PuTTY.
+
+## Conclusion
+
+This project shows how an NvM initialization routine can validate a configuration before accepting it. It totals the sizes of ten configured variables, accepts totals up to 512 bytes, and reports overflow when the limit is exceeded. The current example totals 134 bytes and is accepted. UART output makes the result visible in PuTTY.
